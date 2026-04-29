@@ -1,70 +1,57 @@
-from flask import Blueprint, request, jsonify, render_template, redirect
-from app.models.db import get_connection
+from flask import render_template
+from flask import request
+from flask import redirect
+from flask import session
 
-auth = Blueprint("auth", __name__)
+from app.models.usuario import Usuario
 
-# PÁGINAS
-@auth.route("/")
+
 def home():
+
     return redirect("/login")
 
-@auth.route("/login")
-def login_page():
+
+def exibir_login():
+
     return render_template("login.html")
 
-@auth.route("/cadastro")
-def cadastro_page():
+
+def exibir_cadastro():
+
     return render_template("cadastro.html")
 
 
-# API LOGIN
-@auth.route("/api/login", methods=["POST"])
-def api_login():
-    data = request.get_json()
+def salvar_usuario():
 
-    email = data.get("email")
-    senha = data.get("senha")
+    nome = request.form["nome"]
+    email = request.form["email"]
+    senha = request.form["senha"]
 
-    conn = get_connection()
-    user = conn.execute(
-        "SELECT * FROM usuarios WHERE email=? AND senha=?",
-        (email, senha)
-    ).fetchone()
-    conn.close()
+    usuario = Usuario(nome, email, senha)
 
-    if user:
-        return jsonify({"status": "ok"})
-    else:
-        return jsonify({
-            "status": "erro",
-            "mensagem": "Email ou senha inválidos"
-        })
+    usuario.salvar()
+
+    return redirect("/login")
 
 
-# API CADASTRO
-@auth.route("/api/cadastro", methods=["POST"])
-def api_cadastro():
-    data = request.get_json()
+def logar_usuario():
 
-    nome = data.get("nome")
-    email = data.get("email")
-    senha = data.get("senha")
+    email = request.form["email"]
+    senha = request.form["senha"]
 
-    conn = get_connection()
+    usuario = Usuario("", email, senha)
 
-    try:
-        conn.execute(
-            "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)",
-            (nome, email, senha)
-        )
-        conn.commit()
-        conn.close()
+    if usuario.entrar():
 
-        return jsonify({"status": "ok"})
+        session["usuario"] = email
 
-    except:
-        conn.close()
-        return jsonify({
-            "status": "erro",
-            "mensagem": "Email já cadastrado"
-        })
+        return redirect("/mapa")
+
+    return redirect("/login")
+
+
+def sair():
+
+    session.clear()
+
+    return redirect("/login")

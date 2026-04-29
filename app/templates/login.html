@@ -12,14 +12,13 @@
     <div class="container">
         <h2>Login</h2>
 
-        <input type="email" id="email" placeholder="Email">
-        <input type="password" id="senha" placeholder="Senha">
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button onclick="entrar()">Entrar</button>
+        </form>
 
-        <button onclick="login()">Entrar</button>
-
-        <p id="erro"></p>
-
-        <p>Não tem conta? <a href="/cadastro">Cadastrar</a></p>
+        <a href="/cadastro">Cadastrar</a>
     </div>
 </body>
 

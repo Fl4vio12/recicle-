@@ -1,20 +1,18 @@
 import sqlite3
 
-def get_connection():
-    conn = sqlite3.connect("database.db")
-    conn.row_factory = sqlite3.Row
-    return conn
+def conectar():
+    return sqlite3.connect("database.db")
+
 
 def criar_tabela():
-    conn = get_connection()
-    cursor = conn.cursor()
+    conn = conectar()
 
-    cursor.execute("""
+    conn.execute("""
     CREATE TABLE IF NOT EXISTS usuarios (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        senha TEXT NOT NULL
+        nome TEXT,
+        email TEXT,
+        senha TEXT
     )
     """)
 

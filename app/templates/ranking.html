@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking</title>
+    <link rel="stylesheet" href="/static/css/ranking.css">
+     <script src="/static/js/ranking.js"></script>
+</head>
+<body>
+
+    <div class="topo">
+        🏆 Ranking
+    </div>
+    <div class="box">
+
+        {% for item in lista %}
+
+        <div
+            class="item {% if loop.index == 1 %}ouro{% endif %}{% if loop.index == 2 %} prata{% endif %}{% if loop.index == 3 %} bronze{% endif %}">
+
+            <div class="lado">
+
+                {% if loop.index == 1 %}
+                🥇
+                {% elif loop.index == 2 %}
+                🥈
+                {% elif loop.index == 3 %}
+                🥉
+                {% else %}
+                {{ loop.index }}°
+                {% endif %}
+
+            </div>
+
+            <div class="nome">
+                {{ item.nome }}
+            </div>
+
+            <div class="pts">
+                {{ item.pontos }} pts
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        <a href="/mapa" class="voltar">⬅ Voltar</a>
+
+    </div>
+</body>
+
+</html>
