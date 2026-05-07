@@ -6,9 +6,11 @@ from flask import session
 from app.models.usuario import Usuario
 
 
+
 def home():
 
     return redirect("/login")
+
 
 
 def exibir_login():
@@ -16,9 +18,11 @@ def exibir_login():
     return render_template("login.html")
 
 
+
 def exibir_cadastro():
 
     return render_template("cadastro.html")
+
 
 
 def salvar_usuario():
@@ -32,6 +36,7 @@ def salvar_usuario():
     usuario.salvar()
 
     return redirect("/login")
+
 
 
 def logar_usuario():
@@ -48,6 +53,7 @@ def logar_usuario():
         return redirect("/mapa")
 
     return redirect("/login")
+
 
 
 def sair():

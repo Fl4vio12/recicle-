@@ -6,15 +6,11 @@ window.onload = function () {
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     ).addTo(mapa);
 
-
-    /* pontos */
-
     var p1 = L.marker([-5.09, -42.80])
         .addTo(mapa)
         .bindPopup("Ponto Centro - plastico");
 
     p1.tipo = "plastico";
-
 
     var p2 = L.marker([-5.08, -42.79])
         .addTo(mapa)
@@ -22,18 +18,13 @@ window.onload = function () {
 
     p2.tipo = "papel";
 
-
     var p3 = L.marker([-5.10, -42.82])
         .addTo(mapa)
         .bindPopup("Ponto Norte - vidro");
 
     p3.tipo = "vidro";
 
-
     var lista = [p1, p2, p3];
-
-
-    /* filtro */
 
     window.irFiltro = function (tipo) {
 
@@ -44,13 +35,8 @@ window.onload = function () {
             if (tipo == "todos" || lista[i].tipo == tipo) {
                 lista[i].addTo(mapa);
             }
-
         }
-
     }
-
-
-    /* localização */
 
     if (navigator.geolocation) {
 
@@ -65,9 +51,6 @@ window.onload = function () {
                 .addTo(mapa)
                 .bindPopup("Você está aqui")
                 .openPopup();
-
         });
-
     }
-
 }

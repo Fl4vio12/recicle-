@@ -1,20 +1,10 @@
 import sqlite3
 
+
 def conectar():
-    return sqlite3.connect("database.db")
 
+    conn = sqlite3.connect("database.db")
 
-def criar_tabela():
-    conn = conectar()
+    conn.row_factory = sqlite3.Row
 
-    conn.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT,
-        email TEXT,
-        senha TEXT
-    )
-    """)
-
-    conn.commit()
-    conn.close()
+    return conn

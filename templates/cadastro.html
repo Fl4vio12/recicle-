@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - RECICLE+</title>
+    <link rel="stylesheet" href="/static/css/cadastro.css">
+    <script src="/static/js/cadastro.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="titulo">RECICLE+</h1>
+        <h2 class="subtitulo">Criar Conta</h2>
+
+        <form id="formCad" action="/cadastro" method="POST" class="formulario">
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" class="campo" required>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" class="campo" required>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" class="campo" required>
+            <button type="button" onclick="cadastrar()" class="btn">
+                Cadastrar
+            </button>
+        </form>
+
+        <p class="texto">
+            Já tem conta?
+            <a href="/login" class="link">Entrar</a>
+        </p>
+    </div>
+</body>
+
+</html>

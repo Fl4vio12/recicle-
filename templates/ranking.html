@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Ranking</title>
     <link rel="stylesheet" href="/static/css/ranking.css">
-     <script src="/static/js/ranking.js"></script>
+    <script src="/static/js/ranking.js"></script>
 </head>
-<body>
 
+<body>
     <div class="topo">
         🏆 Ranking
     </div>
+
     <div class="box">
-
         {% for item in lista %}
-
         <div
             class="item {% if loop.index == 1 %}ouro{% endif %}{% if loop.index == 2 %} prata{% endif %}{% if loop.index == 3 %} bronze{% endif %}">
-
             <div class="lado">
-
                 {% if loop.index == 1 %}
                 🥇
                 {% elif loop.index == 2 %}
@@ -30,7 +27,6 @@
                 {% else %}
                 {{ loop.index }}°
                 {% endif %}
-
             </div>
 
             <div class="nome">
@@ -40,13 +36,10 @@
             <div class="pts">
                 {{ item.pontos }} pts
             </div>
-
         </div>
-
         {% endfor %}
 
         <a href="/mapa" class="voltar">⬅ Voltar</a>
-
     </div>
 </body>
 

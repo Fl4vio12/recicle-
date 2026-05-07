@@ -1,22 +1,18 @@
 from flask import Flask
-
-from app.routes import auth_router, mapa_router
-from app.models.db import criar_tabela
+from app.routes import auth_router
+from app.routes import mapa_router
 from app.routes import ranking_router
+from app.routes import perfil_router
+from app.routes import educacao_router
 
-app = Flask(
-    __name__,
-    template_folder="app/templates",
-    static_folder="app/static"
-)
+app = Flask(__name__)
 
-app.secret_key = "recicle"
-
-criar_tabela()
+app.secret_key = "recicle123"
 
 auth_router.adicionar_rotas(app)
 mapa_router.adicionar_rotas(app)
 ranking_router.adicionar_rotas(app)
+perfil_router.adicionar_rotas(app)
+educacao_router.adicionar_rotas(app)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+app.run(debug=True)

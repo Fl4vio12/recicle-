@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - RECICLE+</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/login.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <h1 class="titulo">RECICLE+</h1>
+        <h2 class="subtitulo">Entrar</h2>
+
+        <form id="formLogin" action="/login" method="POST" class="formulario">
+            <input type="email" id="email" name="email" placeholder="Digite seu email" class="campo" required>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" class="campo" required>
+            <button type="button" onclick="entrar()" class="btn">
+                Entrar
+            </button>
+        </form>
+
+        <p class="texto">
+            Não tem conta?
+            <a href="/cadastro" class="link">Cadastrar</a>
+        </p>
+    </div>
+</body>
+
+</html>

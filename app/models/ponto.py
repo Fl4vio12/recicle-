@@ -29,16 +29,3 @@ class Ponto:
     @classmethod
     def listar(cls):
         return cls.lista
-
-
-    @classmethod
-    def filtro(cls, tipo):
-
-        nova = []
-
-        for item in cls.lista:
-
-            if item["tipo"] == tipo:
-                nova.append(item)
-
-        return nova

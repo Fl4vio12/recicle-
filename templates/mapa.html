@@ -2,42 +2,34 @@
 <html lang="pt-BR">
 
 <head>
-    <title>Mapa - Recicle+</title>
+    <meta charset="UTF-8">
+    <title>RECICLE+</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="/static/css/mapa.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="/static/js/mapa.js"></script>
 </head>
 
 <body>
     <div class="topo">
-
         <input type="text" placeholder="Pesquise aqui" class="busca">
-
         <a href="/perfil" class="user">👤</a>
-
     </div>
 
     <div class="filtro">
-
         <button onclick="irFiltro('todos')">Todos</button>
         <button onclick="irFiltro('plastico')">Plástico</button>
         <button onclick="irFiltro('papel')">Papel</button>
         <button onclick="irFiltro('vidro')">Vidro</button>
-
     </div>
 
     <div id="mapa"></div>
 
     <div class="menu">
-
         <a href="/mapa">Início</a>
         <a href="/ranking">Ranking</a>
         <a href="/logout">Sair</a>
-
     </div>
-
-
 </body>
 
 </html>

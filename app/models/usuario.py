@@ -26,11 +26,11 @@ class Usuario:
 
         conn = conectar()
 
-        user = conn.execute(
+        usuario = conn.execute(
             "SELECT * FROM usuarios WHERE email=? AND senha=?",
             (self.email, self.senha)
         ).fetchone()
 
         conn.close()
 
-        return user
+        return usuario

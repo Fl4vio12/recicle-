@@ -1,16 +1,15 @@
 from flask import render_template
 from flask import session
 from flask import redirect
+from app.models.material import Material
 
-from app.models.ranking import Ranking
-
-def ranking():
+def educacao():
     if "usuario" not in session:
         return redirect("/login")
 
-    lista = Ranking.listar()
+    lista = Material.listar()
 
     return render_template(
-        "ranking.html",
+        "educacao.html",
         lista=lista
     )

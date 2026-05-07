@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Educação</title>
+    <link rel="stylesheet" href="/static/css/educacao.css">
+    <script src="/static/js/educacao.js"></script>
+</head>
+
+<body>
+    <div class="topo">
+        ♻️ Educação Ambiental
+    </div>
+    <div class="box">
+        {% for item in lista %}
+        <div class="card">
+            <div class="icone">
+                {{ item.icone }}
+            </div>
+
+            <h2>
+                {{ item.nome }}
+            </h2>
+
+            <p>
+                {{ item.dica }}
+            </p>
+
+        </div>
+        {% endfor %}
+        <a href="/mapa" class="voltar">
+            ⬅ Voltar
+        </a>
+    </div>
+</body>
+
+</html>
